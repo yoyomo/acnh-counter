@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "start": "parcel src/index.html -d docs/",
-    "build": "rm -rf docs; mkdir docs; cp -R src/assets/img docs; parcel build src/index.html -d docs/ --public-url ./"
+    "build": "parcel build src/index.html -d docs/ --public-url ./"
   },
   "license": "MIT",
   "dependencies": {
