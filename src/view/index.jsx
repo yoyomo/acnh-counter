@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import {decrement, reset, toggle, resetAll, changeViewType} from '../update';
+import imgs from '../assets/img/*.png';
 
 export const ResetButton = (dispatch) => {
 
@@ -51,7 +52,7 @@ export const ToolButton = (props) => {
       className={resettingClasses}
       onClick={() => isSelectingReset ? onReset() : onDecrement()}
     >
-      <img src={`./img/${tool.type}-${tool.name}.png`} width={64} height={64} />
+      <img src={imgs[`${tool.type}-${tool.name}`]} width={64} height={64} />
       <div className="sans-serif f4">
         {tool.counter}
       </div>

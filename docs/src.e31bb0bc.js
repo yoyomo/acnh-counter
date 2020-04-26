@@ -28767,7 +28767,64 @@ function _extends() {
 }
 
 module.exports = _extends;
-},{}],"view/index.jsx":[function(require,module,exports) {
+},{}],"assets/img/flimsy-axe.png":[function(require,module,exports) {
+module.exports = "/flimsy-axe.e0b91192.png";
+},{}],"assets/img/flimsy-fishing-rod.png":[function(require,module,exports) {
+module.exports = "/flimsy-fishing-rod.a74da029.png";
+},{}],"assets/img/flimsy-net.png":[function(require,module,exports) {
+module.exports = "/flimsy-net.2e84a7db.png";
+},{}],"assets/img/flimsy-shovel.png":[function(require,module,exports) {
+module.exports = "/flimsy-shovel.9f30b9ad.png";
+},{}],"assets/img/flimsy-watering-can.png":[function(require,module,exports) {
+module.exports = "/flimsy-watering-can.52254e29.png";
+},{}],"assets/img/golden-axe.png":[function(require,module,exports) {
+module.exports = "/golden-axe.e5b1eca2.png";
+},{}],"assets/img/golden-fishing-rod.png":[function(require,module,exports) {
+module.exports = "/golden-fishing-rod.9fbe671b.png";
+},{}],"assets/img/golden-net.png":[function(require,module,exports) {
+module.exports = "/golden-net.378d5327.png";
+},{}],"assets/img/golden-shovel.png":[function(require,module,exports) {
+module.exports = "/golden-shovel.04d591d8.png";
+},{}],"assets/img/golden-slingshot.png":[function(require,module,exports) {
+module.exports = "/golden-slingshot.7d4d6d20.png";
+},{}],"assets/img/golden-watering-can.png":[function(require,module,exports) {
+module.exports = "/golden-watering-can.12ba1d03.png";
+},{}],"assets/img/regular-axe.png":[function(require,module,exports) {
+module.exports = "/regular-axe.271628ff.png";
+},{}],"assets/img/regular-fishing-rod.png":[function(require,module,exports) {
+module.exports = "/regular-fishing-rod.bfdbfb26.png";
+},{}],"assets/img/regular-net.png":[function(require,module,exports) {
+module.exports = "/regular-net.5fb503cd.png";
+},{}],"assets/img/regular-shovel.png":[function(require,module,exports) {
+module.exports = "/regular-shovel.dfd56fcb.png";
+},{}],"assets/img/regular-slingshot.png":[function(require,module,exports) {
+module.exports = "/regular-slingshot.4d8c8e9b.png";
+},{}],"assets/img/regular-stone-axe.png":[function(require,module,exports) {
+module.exports = "/regular-stone-axe.e97f5fc4.png";
+},{}],"assets/img/regular-watering-can.png":[function(require,module,exports) {
+module.exports = "/regular-watering-can.5b8845b9.png";
+},{}],"assets/img/*.png":[function(require,module,exports) {
+module.exports = {
+  "flimsy-axe": require("./flimsy-axe.png"),
+  "flimsy-fishing-rod": require("./flimsy-fishing-rod.png"),
+  "flimsy-net": require("./flimsy-net.png"),
+  "flimsy-shovel": require("./flimsy-shovel.png"),
+  "flimsy-watering-can": require("./flimsy-watering-can.png"),
+  "golden-axe": require("./golden-axe.png"),
+  "golden-fishing-rod": require("./golden-fishing-rod.png"),
+  "golden-net": require("./golden-net.png"),
+  "golden-shovel": require("./golden-shovel.png"),
+  "golden-slingshot": require("./golden-slingshot.png"),
+  "golden-watering-can": require("./golden-watering-can.png"),
+  "regular-axe": require("./regular-axe.png"),
+  "regular-fishing-rod": require("./regular-fishing-rod.png"),
+  "regular-net": require("./regular-net.png"),
+  "regular-shovel": require("./regular-shovel.png"),
+  "regular-slingshot": require("./regular-slingshot.png"),
+  "regular-stone-axe": require("./regular-stone-axe.png"),
+  "regular-watering-can": require("./regular-watering-can.png")
+};
+},{"./flimsy-axe.png":"assets/img/flimsy-axe.png","./flimsy-fishing-rod.png":"assets/img/flimsy-fishing-rod.png","./flimsy-net.png":"assets/img/flimsy-net.png","./flimsy-shovel.png":"assets/img/flimsy-shovel.png","./flimsy-watering-can.png":"assets/img/flimsy-watering-can.png","./golden-axe.png":"assets/img/golden-axe.png","./golden-fishing-rod.png":"assets/img/golden-fishing-rod.png","./golden-net.png":"assets/img/golden-net.png","./golden-shovel.png":"assets/img/golden-shovel.png","./golden-slingshot.png":"assets/img/golden-slingshot.png","./golden-watering-can.png":"assets/img/golden-watering-can.png","./regular-axe.png":"assets/img/regular-axe.png","./regular-fishing-rod.png":"assets/img/regular-fishing-rod.png","./regular-net.png":"assets/img/regular-net.png","./regular-shovel.png":"assets/img/regular-shovel.png","./regular-slingshot.png":"assets/img/regular-slingshot.png","./regular-stone-axe.png":"assets/img/regular-stone-axe.png","./regular-watering-can.png":"assets/img/regular-watering-can.png"}],"view/index.jsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -28786,6 +28843,8 @@ var _react = _interopRequireDefault(require("react"));
 var _reactDom = _interopRequireDefault(require("react-dom"));
 
 var _update = require("../update");
+
+var _ = _interopRequireDefault(require("../assets/img/*.png"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -28839,7 +28898,7 @@ var ToolButton = function ToolButton(props) {
       return isSelectingReset ? onReset() : onDecrement();
     }
   }), /*#__PURE__*/_react.default.createElement("img", {
-    src: "./img/".concat(tool.type, "-").concat(tool.name, ".png"),
+    src: _.default["".concat(tool.type, "-").concat(tool.name)],
     width: 64,
     height: 64
   }), /*#__PURE__*/_react.default.createElement("div", {
@@ -28941,7 +29000,7 @@ var _default = function _default(dispatch) {
 };
 
 exports.default = _default;
-},{"@babel/runtime/helpers/defineProperty":"../node_modules/@babel/runtime/helpers/defineProperty.js","@babel/runtime/helpers/objectWithoutProperties":"../node_modules/@babel/runtime/helpers/objectWithoutProperties.js","@babel/runtime/helpers/extends":"../node_modules/@babel/runtime/helpers/extends.js","react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","../update":"update/index.js"}],"ignite/index.js":[function(require,module,exports) {
+},{"@babel/runtime/helpers/defineProperty":"../node_modules/@babel/runtime/helpers/defineProperty.js","@babel/runtime/helpers/objectWithoutProperties":"../node_modules/@babel/runtime/helpers/objectWithoutProperties.js","@babel/runtime/helpers/extends":"../node_modules/@babel/runtime/helpers/extends.js","react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","../update":"update/index.js","../assets/img/*.png":"assets/img/*.png"}],"ignite/index.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -29162,7 +29221,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58232" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58955" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
