@@ -51,7 +51,7 @@ export const ToolButton = (props) => {
       className={resettingClasses}
       onClick={() => isSelectingReset ? onReset() : onDecrement()}
     >
-      <img src={`assets/img/${tool.type}-${tool.name}.png`} width={64} height={64} />
+      <img src={`./img/${tool.type}-${tool.name}.png`} width={64} height={64} />
       <div className="sans-serif f4">
         {tool.counter}
       </div>
