@@ -1,28 +1,20 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import {decrement, reset, toggle, resetAll, changeViewType} from '../update';
 import imgs from '../assets/img/*.png';
 
-export const ResetButton = (dispatch) => {
-
-  const dispatcher = {
-    selectReset: () => dispatch(toggle('isSelectingReset')),
-    resetAll: () => dispatch(resetAll()),
-  }
-
-  return (model) => {
+export const ResetButton = (dispatch, model, actions) => {
     return (
       <>
         <Button
           className={model.toggles.isSelectingReset ? 'bg-light-gray' : 'bg-red white'} 
-          onClick={dispatcher.selectReset}
+          onClick={() => dispatch(actions.toggle('isSelectingReset'))}
         >
           {model.toggles.isSelectingReset ? 'Cancel' : 'Reset'}
         </Button>
         {model.toggles.isSelectingReset ?
           <Button
             className='bg-red white' 
-            onClick={dispatcher.resetAll}
+            onClick={() => dispatch(actions.resetAll())}
           >
             Reset All
           </Button>
@@ -30,8 +22,7 @@ export const ResetButton = (dispatch) => {
         }
       </>
     )
-}
-}
+  }
 
 export const Button = (props) => {
   return (
@@ -61,14 +52,7 @@ export const ToolButton = (props) => {
   );
 }
 
-export const Tools = (dispatch) => {
-
-  const dispatcher = {
-    decrementTool: (toolIndex) => dispatch(decrement(toolIndex)),
-    reset: (toolIndex) => dispatch(reset(toolIndex)),
-  }
-
-  return (model) => {
+export const Tools = (dispatch, model, actions) => {
 
     const regularTools = model.tools.filter(t=>t.type == 'regular');
     const flimsyTools = model.tools.filter(t=>t.type == 'flimsy');
@@ -84,8 +68,8 @@ export const Tools = (dispatch) => {
                 key={`tool-${toolIndex}`}
                 tool={tool}
                 isSelectingReset={model.toggles.isSelectingReset}
-                onReset={() => dispatcher.reset(toolIndex)}
-                onDecrement={()=> dispatcher.decrementTool(toolIndex)}
+                onReset={() => dispatch(actions.reset(toolIndex))}
+                onDecrement={()=> dispatch(actions.decrementTool(toolIndex))}
               />
             )
           })}
@@ -103,24 +87,17 @@ export const Tools = (dispatch) => {
 
     )
   }
-}
 
 const ViewTypes = ['regular', 'flimsy', 'golden'];
 
-export const Navigation = (dispatch) => {
-
-  const dispatcher = {
-    changeViewType: (viewType) => dispatch(changeViewType(viewType)),
-  }
-
-  return (model) => {
+export const Navigation = (dispatch, model, actions) => {
     return (
       <div className="bg-light-gray">
         {ViewTypes.map(viewType => {
           return (
             <div
               key={`view-type-${viewType}`}
-              onClick={() => dispatcher.changeViewType(viewType)}
+              onClick={() => dispatch(actions.changeViewType(viewType))}
               className={`${viewType === model.viewType ? 'bg-green white' : ''} pa2 pointer`}>
               {viewType}
             </div>
@@ -129,21 +106,13 @@ export const Navigation = (dispatch) => {
       </div>
     )
   }
-}
 
-export default (dispatch) => {
-
-  const ToolsContent = Tools(dispatch);
-  const ResetButtonContent = ResetButton(dispatch);
-  const NavigationContent = Navigation(dispatch);
-
-  return (model) => {
+export default (dispatch, model, actions) => {
     return <div className="flex flex-row min-vh-100">
-      <NavigationContent {...model} />
+      {Navigation(dispatch, model, actions)}
       <div>
-        <ToolsContent {...model} />
-        <ResetButtonContent {...model} />
+        {Tools(dispatch, model, actions)}
+        {ResetButton(dispatch, model, actions)}
       </div>
     </div>
   }
-}

@@ -12,18 +12,16 @@ export default class extends React.Component {
   }
 
   componentDidMount() {
-    Ignite(this.dispatch);
+    Ignite(this.dispatch, Update);
   }
 
   dispatch = (action) => {
     let oldState = {...this.state};
-    let reduction = Update(oldState, action);
-    this.setState(reduction.model);
+    let partialState = action(oldState);
+    this.setState({...oldState, ...partialState});
   }
 
   render() {
-    let model = {...this.state};
-    let ViewContent = View(this.dispatch);
-    return ViewContent(model)
+    return View(this.dispatch, {...this.state}, Update)
   }
 };
