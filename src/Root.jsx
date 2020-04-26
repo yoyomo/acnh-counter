@@ -1,18 +1,18 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Model from './model';
-import Update from './update';
-import View from './view';
-import Ignite from './ignite';
 
 export default class extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {...Model};
+    this.model = props.model;
+    this.update = props.update;
+    this.view = props.view;
+    this.ignite = props.ignite;
+    this.state = {...this.model};
   }
 
   componentDidMount() {
-    Ignite(this.dispatch, Update);
+    this.ignite && this.ignite(this.dispatch, this.update);
   }
 
   dispatch = (action) => {
@@ -22,6 +22,6 @@ export default class extends React.Component {
   }
 
   render() {
-    return View(this.dispatch, {...this.state}, Update)
+    return this.view(this.dispatch, {...this.state}, this.update)
   }
 };
