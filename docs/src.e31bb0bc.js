@@ -28935,7 +28935,7 @@ var _default = function _default(dispatch) {
   var NavigationContent = Navigation(dispatch);
   return function (model) {
     return /*#__PURE__*/_react.default.createElement("div", {
-      className: "flex flex-row vh-100"
+      className: "flex flex-row min-vh-100"
     }, /*#__PURE__*/_react.default.createElement(NavigationContent, model), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(ToolsContent, model), /*#__PURE__*/_react.default.createElement(ResetButtonContent, model)));
   };
 };
@@ -29162,7 +29162,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63538" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50009" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

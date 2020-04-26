@@ -137,7 +137,7 @@ export default (dispatch) => {
   const NavigationContent = Navigation(dispatch);
 
   return (model) => {
-    return <div className="flex flex-row vh-100">
+    return <div className="flex flex-row min-vh-100">
       <NavigationContent {...model} />
       <div>
         <ToolsContent {...model} />
