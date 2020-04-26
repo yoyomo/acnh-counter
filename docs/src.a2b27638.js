@@ -28839,7 +28839,7 @@ var ToolButton = function ToolButton(props) {
       return isSelectingReset ? onReset() : onDecrement();
     }
   }), /*#__PURE__*/_react.default.createElement("img", {
-    src: "./img/".concat(tool.type, "-").concat(tool.name, ".png"),
+    src: "assets/img/".concat(tool.type, "-").concat(tool.name, ".png"),
     width: 64,
     height: 64
   }), /*#__PURE__*/_react.default.createElement("div", {
@@ -29162,7 +29162,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62882" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54313" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
