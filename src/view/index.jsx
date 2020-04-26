@@ -17,7 +17,7 @@ export const ResetButton = (dispatch) => {
           className={model.toggles.isSelectingReset ? 'bg-light-gray' : 'bg-red white'} 
           onClick={dispatcher.selectReset}
         >
-          Reset
+          {model.toggles.isSelectingReset ? 'Cancel' : 'Reset'}
         </Button>
         {model.toggles.isSelectingReset ?
           <Button

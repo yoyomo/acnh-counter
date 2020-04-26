@@ -28865,7 +28865,7 @@ var ResetButton = function ResetButton(dispatch) {
     return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(Button, {
       className: model.toggles.isSelectingReset ? 'bg-light-gray' : 'bg-red white',
       onClick: dispatcher.selectReset
-    }, "Reset"), model.toggles.isSelectingReset ? /*#__PURE__*/_react.default.createElement(Button, {
+    }, model.toggles.isSelectingReset ? 'Cancel' : 'Reset'), model.toggles.isSelectingReset ? /*#__PURE__*/_react.default.createElement(Button, {
       className: "bg-red white",
       onClick: dispatcher.resetAll
     }, "Reset All") : null);
@@ -29221,7 +29221,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58955" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62025" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

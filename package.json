@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "description": "",
   "scripts": {
-    "start": "parcel src/index.html -d docs/",
-    "build": "parcel build src/index.html -d docs/ --public-url ./"
+    "start": "parcel src/index.html",
+    "build": "parcel build src/index.html --out-dir docs/ --public-url ./"
   },
   "license": "MIT",
   "dependencies": {
