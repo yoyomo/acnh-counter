@@ -38,7 +38,6 @@ export const ToolButton = ({isSelectingReset, onDecrement, onReset, tool, ...dom
       {tool.counter}
     </div>
   </Button>
-
 )
 
 export const Tools = (dispatch, model, actions) => (
@@ -58,7 +57,6 @@ export const Tools = (dispatch, model, actions) => (
       })}
     </div>
   </div>
-
 )
 
 const ViewTypes = ['regular', 'flimsy', 'golden'];
