@@ -22,9 +22,9 @@ export const ResetButton = (dispatch, model, actions) => (
   </>
 )
 
-export const Button = (props) => (
-  <div {...props} className={"br4 ma4 pa2 pointer tc shadow-4 " + props.className}>
-    {props.children}
+export const Button = ({className, children, ...domProps}) => (
+  <div {...domProps} className={"br4 ma4 pa2 pointer tc shadow-4 " + className}>
+    {children}
   </div>
 )
 
