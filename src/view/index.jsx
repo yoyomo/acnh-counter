@@ -28,25 +28,18 @@ export const Button = (props) => (
   </div>
 )
 
-export const ToolButton = (props) => {
+export const ToolButton = ({isSelectingReset, onDecrement, onReset, tool, ...domProps}) => (
+  <Button {...domProps}
+    className={isSelectingReset ? 'bg-red white' : 'bg-light-gray'}
+    onClick={() => isSelectingReset ? onReset() : onDecrement()}
+  >
+    <img src={imgs[`${tool.type}-${tool.name}`]} width={64} height={64} />
+    <div className="f4">
+      {tool.counter}
+    </div>
+  </Button>
 
-  const resettingClasses = props.isSelectingReset ? 'bg-red white' : 'bg-light-gray'; 
-
-  const {isSelectingReset, onDecrement, onReset, tool, ...domProps} = {...props};
-
-  return (
-    <Button {...domProps}
-      className={resettingClasses}
-      onClick={() => isSelectingReset ? onReset() : onDecrement()}
-    >
-      <img src={imgs[`${tool.type}-${tool.name}`]} width={64} height={64} />
-      <div className="f4">
-        {tool.counter}
-      </div>
-    </Button>
-
-  );
-}
+)
 
 export const Tools = (dispatch, model, actions) => (
   <div className="flex flex-row flex-wrap no-select">
