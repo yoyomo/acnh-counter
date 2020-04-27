@@ -53,16 +53,11 @@ export const ToolButton = (props) => {
 }
 
 export const Tools = (dispatch, model, actions) => {
-
-  const regularTools = model.tools.filter(t=>t.type == 'regular');
-  const flimsyTools = model.tools.filter(t=>t.type == 'flimsy');
-  const goldenTools = model.tools.filter(t=>t.type == 'golden');
-
-  const ToolsByTypeContent = (props) => {
-    return (
+  return (
+    <div className="flex flex-row flex-wrap no-select">
       <div className="flex flex-row flex-wrap no-select">
-        {props.tools.map((tool, toolIndex) => {
-          toolIndex += props.offset;
+        {model.tools.map((tool, toolIndex) => {
+          if(tool.type !== model.viewType) return;
           return (
             <ToolButton 
               key={`tool-${toolIndex}`}
@@ -74,15 +69,6 @@ export const Tools = (dispatch, model, actions) => {
           )
         })}
       </div>
-    )
-  }
-
-
-  return (
-    <div className="flex flex-row flex-wrap no-select">
-      {model.viewType === 'regular' && <ToolsByTypeContent tools={regularTools} offset={0}/>}
-      {model.viewType === 'flimsy' && <ToolsByTypeContent tools={flimsyTools} offset={regularTools.length}/> }
-      {model.viewType === 'golden' && <ToolsByTypeContent tools={goldenTools} offset={regularTools.length + flimsyTools.length}/> }
     </div>
 
   )
