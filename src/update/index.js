@@ -48,14 +48,18 @@ export default {
 
 }
 
+export const isPresent = (obj) => obj !== null && obj !== undefined;
+
 export const resetCounter = (model, toolIndex) => {
 
   let tools = model.tools.slice();
 
-  if(toolIndex) {
+  if ( isPresent(toolIndex) ) {
+
     const tool = model.tools[toolIndex];
 
     tools = model.tools.slice();
+
     tools[toolIndex] = Tool(tool.type, tool.name);
   } 
   else {
