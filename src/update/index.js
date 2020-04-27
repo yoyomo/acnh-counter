@@ -12,14 +12,14 @@ export default {
     }
 
     localStorage.setItem('tools', JSON.stringify(tools));
-    return ({tools});
+    return ({...model, tools});
   },
   reset: (toolIndex) => (model) => (resetCounter(model, toolIndex)),
   resetAll: () => (model) => (resetCounter(model)),
   toggle: (target) => (model) => {
     let toggles= {...model.toggles};
     toggles[target] = !toggles[target];
-    return ({toggles});
+    return ({...model, toggles});
   },
   readFromLocalStorage: () => (model) => {
     let tools = model.tools.slice();
@@ -39,11 +39,11 @@ export default {
     catch(err){
       console.error(err);
     }
-    return ({tools, viewType});
+    return ({...model, tools, viewType});
   },
   changeViewType: (viewType) => (model) => {
     localStorage.setItem('viewType', viewType);
-    return ({viewType});
+    return ({...model, viewType});
   }
 
 }
@@ -67,5 +67,5 @@ export const resetCounter = (model, toolIndex) => {
 
   localStorage.setItem('tools', JSON.stringify(tools));
 
-  return ({tools, toggles});
+  return ({...model, tools, toggles});
 }

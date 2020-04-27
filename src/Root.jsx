@@ -17,8 +17,8 @@ export default class extends React.Component {
 
   dispatch = (action) => {
     let oldState = {...this.state};
-    let partialState = action(oldState);
-    this.setState({...oldState, ...partialState});
+    let newState = action(oldState);
+    this.setState(newState);
   }
 
   render() {
