@@ -93,4 +93,4 @@ export default (dispatch, model, actions) => (
       {ResetButton(dispatch, model, actions)}
     </div>
   </div>
-
+)
