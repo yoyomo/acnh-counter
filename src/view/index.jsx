@@ -33,7 +33,7 @@ export const ToolButton = ({isSelectingReset, onDecrement, onReset, tool, ...dom
     className={isSelectingReset ? 'bg-red white' : 'bg-light-gray'}
     onClick={() => isSelectingReset ? onReset() : onDecrement()}
   >
-    <img src={imgs[`${tool.type}-${tool.name}`]} width={64} height={64} />
+    <img draggable="false" src={imgs[`${tool.type}-${tool.name}`]} width={64} height={64} />
     <div className="f4">
       {tool.counter}
     </div>
@@ -41,8 +41,8 @@ export const ToolButton = ({isSelectingReset, onDecrement, onReset, tool, ...dom
 )
 
 export const Tools = (dispatch, model, actions) => (
-  <div className="flex flex-row flex-wrap no-select">
-    <div className="flex flex-row flex-wrap no-select">
+  <div className="flex flex-row flex-wrap">
+    <div className="flex flex-row flex-wrap">
       {model.tools.map((tool, toolIndex) => {
         if(tool.type !== model.viewType) return;
         return (
@@ -77,7 +77,7 @@ export const Navigation = (dispatch, model, actions) => (
 )
 
 export default (dispatch, model, actions) => (
-  <div className="flex flex-row min-vh-100 sans-serif">
+  <div className="flex flex-row min-vh-100 sans-serif disable-dbl-tap-zoom no-select">
     {Navigation(dispatch, model, actions)}
     <div>
       {Tools(dispatch, model, actions)}

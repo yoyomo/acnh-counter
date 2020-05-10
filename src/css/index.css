@@ -1,1 +1,5 @@
 .no-select { user-select: none }
+
+.disable-dbl-tap-zoom {
+  touch-action: manipulation;
+}
